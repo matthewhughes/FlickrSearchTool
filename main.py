@@ -4,7 +4,7 @@ from flickrapi import FlickrAPI, shorturl
 import scraperwiki
 from collections import OrderedDict
 
-API_KEY = "REDACTED"
+API_KEY = "8812d02940ff6669b30904b807ecc49b"
 flickr = FlickrAPI(API_KEY)
 
 
@@ -46,7 +46,7 @@ def search_flickr(searchvalue):
         if photo.get('latitude') != '0':
             row = OrderedDict()
             row['id'] = photo.get('id')
-            row['title] = photo.get('title')
+            row['title'] = photo.get('title')
             row['latitude'] = float(photo.get('latitude'))
             row['longitude'] = float(photo.get('longitude'))
             row['url'] = shorturl.url(photo.get('id'))
