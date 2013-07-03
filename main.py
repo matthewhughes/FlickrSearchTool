@@ -1,3 +1,4 @@
+import traceback
 import json
 import sys
 from flickrapi import FlickrAPI, shorturl
