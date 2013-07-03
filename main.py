@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import traceback
 import json
 import sys
@@ -15,7 +17,7 @@ class InvalidArgumentError(Exception):
     pass
 
 def main():
-     try:
+    try:
         if len(sys.argv) != 2:
             raise InvalidArgumentError("Please supply a single argument. An example would be 'kittens'")
         else:
