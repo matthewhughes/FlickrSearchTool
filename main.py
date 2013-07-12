@@ -45,8 +45,7 @@ def main():
 def search_flickr(searchvalue):
     favs = flickr.walk(tags=searchvalue, extras="geo")
     rows = []
-    i = 0
-    for photo in favs:
+    for i, photo in enumerate(favs):
         if photo.get('latitude') != '0':
             row = OrderedDict()
             row['id'] = photo.get('id')
@@ -55,9 +54,8 @@ def search_flickr(searchvalue):
             row['longitude'] = float(photo.get('longitude'))
             row['url'] = shorturl.url(photo.get('id'))
             rows.append(row)
-            i = i + 1
-            if i < 1000:
-                break
+        if i < 10000:
+            break
     submit_to_scraperwiki(rows, searchvalue)
 
 def submit_to_scraperwiki(rows, tablename):
