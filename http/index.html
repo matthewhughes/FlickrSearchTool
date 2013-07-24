@@ -20,13 +20,20 @@
             term = $('#q').val()
             scraperwiki.exec("tool/main.py '" + term + "'", execSuccess)
           })
+           $('input').keypress(function(e) {
+             if(e.which == 13) {
+               alert('hello!') 
+               jQuery(this).blur();
+               jQuery('#submit').focus().click();
+               }
+            });
       })
     </script>
   </head>
   <body style="text-align: center">
     <h1>Search Flickr</h1>
     <div class="input-append">
-      <input type="text" name="q" size="80" id="q" placeholder="Search term, eg: kittens" required="required" maxlength=50>
+      <input type="text" name="q" size="80" id="q" placeholder="Search term, eg: kittens" required="required" maxlength=50 autofocus>
       <button class="btn btn-primary" type="submit" id="submit">Search</button>
     </div>
   </body>
